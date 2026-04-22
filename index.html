@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A beautiful, fast to-do list app to manage your daily tasks." />
+  <title>TaskFlow — To-Do List</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="bg-orb orb1"></div>
+  <div class="bg-orb orb2"></div>
+
+  <main class="container" role="main">
+
+    <header class="app-header">
+      <div class="logo">
+        <span class="logo-icon">✦</span>
+        <span class="logo-text">TaskFlow</span>
+      </div>
+      <button id="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">🌙</button>
+    </header>
+
+    <div class="progress-section">
+      <div class="progress-labels">
+        <span id="progress-label">Today's Progress</span>
+        <span id="progress-pct">0%</span>
+      </div>
+      <div class="progress-bar-track">
+        <div class="progress-bar-fill" id="progress-bar"></div>
+      </div>
+    </div>
+
+    <form id="task-form" autocomplete="off">
+      <div class="input-row">
+        <input
+          type="text"
+          id="task-input"
+          placeholder="What needs to be done?"
+          maxlength="120"
+          required
+        />
+        <div class="custom-select" id="priority-dropdown" aria-label="Priority">
+          <button type="button" class="select-trigger" id="select-trigger">
+            <span id="select-label">Normal</span>
+            <span class="select-arrow">▾</span>
+          </button>
+          <ul class="select-options" id="select-options" role="listbox">
+            <li class="select-option" data-value="normal" role="option">Normal</li>
+            <li class="select-option" data-value="high"   role="option"><span class="dot dot-high"></span>High</li>
+            <li class="select-option" data-value="medium" role="option"><span class="dot dot-medium"></span>Medium</li>
+            <li class="select-option" data-value="low"    role="option"><span class="dot dot-low"></span>Low</li>
+          </ul>
+        </div>
+        <button type="submit" class="add-btn" aria-label="Add task">
+          <span>+</span>
+        </button>
+      </div>
+    </form>
+
+    <div class="filters" role="tablist" aria-label="Filter tasks">
+      <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+      <button class="filter-btn" data-filter="active" role="tab" aria-selected="false">Active</button>
+      <button class="filter-btn" data-filter="completed" role="tab" aria-selected="false">Completed</button>
+    </div>
+
+    <ul id="task-list" aria-label="Task list" aria-live="polite"></ul>
+
+    <footer class="app-footer">
+      <span id="task-count"></span>
+      <button id="clear-completed">Clear Completed</button>
+    </footer>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

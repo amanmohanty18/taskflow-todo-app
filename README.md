@@ -58,7 +58,7 @@ taskflow-todo-app/
 
 ## 📸 Screenshots
 
-*(Add screenshots here later)*
+![TaskFlow UI](assets/screenshot%20(2).png)
 
 ---
 
